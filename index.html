@@ -7,23 +7,22 @@
     body, html {
       margin: 0;
       padding: 0;
+      width: 100%;
       height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #000; /* nur minimal sichtbar hinter Video */
-      font-family: sans-serif;
+      background: #000;
+      overflow: hidden;
     }
 
-    /* Video sichtbar mit minimalem Rahmen */
+    /* Video skaliert automatisch, füllt den Bildschirm ohne Verzerrung */
     #bg-video {
-      width: 90%;      /* passt sich der Breite an */
-      height: auto;    /* Höhe proportional */
-      max-height: 90%; /* passt sich dem Bildschirm an */
-      border: 2px solid #111; /* sehr dünner dunkler Rahmen */
+      width: 100vw;     /* gesamte Breite */
+      height: 100vh;    /* gesamte Höhe */
+      object-fit: contain; /* zeigt den gesamten Flyer, keine Teile abgeschnitten */
+      border: 2px solid #111; /* minimaler Rahmen */
       border-radius: 5px;
-      display: block;
-      margin: 0 auto;
     }
 
     /* Play-Button über dem Video */
@@ -42,13 +41,11 @@
 </head>
 <body>
 
-  <!-- Video direkt sichtbar -->
   <video id="bg-video" loop>
     <source src="Willkommensvideo.mp4" type="video/mp4">
     Dein Browser unterstützt das Video-Tag nicht.
   </video>
 
-  <!-- Play-Button -->
   <button id="play-button" onclick="startVideo()">▶ Ton starten</button>
 
   <script>
@@ -56,7 +53,6 @@
       const video = document.getElementById('bg-video');
       video.muted = false; // Ton einschalten
       video.play();
-      // Button ausblenden
       document.getElementById('play-button').style.display = 'none';
     }
   </script>
