@@ -12,7 +12,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #0b0d2f; /* sehr dunkles Blau */
+      background-color: #0a0a30; /* sehr dunkles Blau */
       font-family: sans-serif;
     }
 
@@ -25,14 +25,40 @@
       line-height: 1.5;
       border-radius: 5px;
     }
+
+    #audio-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: rgba(255, 215, 0, 0.8); /* goldene Farbe */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
+
   <div id="text-container">
     Da, wo meine Worte wachsen,<br>
     bin ich ganz und doch unfertig-roh.<br>
     Spüre ich tief, falle ich tief,<br>
     brenne ich ganz – lichterloh.
+    <br>
+    <button id="audio-button" onclick="playAudio()">▶ Ton abspielen</button>
   </div>
+
+  <audio id="raw-audio">
+    <source src="raw-text.mp3.mp3" type="audio/mpeg">
+    Dein Browser unterstützt das Audio-Tag nicht.
+  </audio>
+
+  <script>
+    function playAudio() {
+      const audio = document.getElementById('raw-audio');
+      audio.play();
+    }
+  </script>
+
 </body>
 </html>
