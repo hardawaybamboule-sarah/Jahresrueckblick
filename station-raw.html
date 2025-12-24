@@ -4,46 +4,35 @@
   <meta charset="UTF-8">
   <title>RAW-Station</title>
   <style>
-    html, body {
+    body, html {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
-      background: #0b0d2f; /* sehr dunkles Blau */
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+      background-color: #0b0d2f; /* sehr dunkles Blau */
       font-family: sans-serif;
     }
 
-    #stars {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: transparent;
-      z-index: 0;
-    }
-
-    .text-frame {
-      position: relative;
-      z-index: 1;
-      padding: 40px;
-      border: 2px solid gold;
-      border-radius: 10px;
+    #text-container {
+      border: 2px solid #FFD700; /* zarter goldener Rahmen */
+      padding: 20px;
       text-align: center;
-      color: #f8f4e3; /* Weißgold */
-      font-size: 24px;
+      color: #FFD700; /* sanftes Gold für Text */
       max-width: 80%;
-      background: rgba(0, 0, 0, 0);
+      line-height: 1.5;
+      border-radius: 5px;
     }
-
-    #play-button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 18px;
-      background: rgba(255, 255, 255, 0.8);
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+  </style>
+</head>
+<body>
+  <div id="text-container">
+    Da, wo meine Worte wachsen,<br>
+    bin ich ganz und doch unfertig-roh.<br>
+    Spüre ich tief, falle ich tief,<br>
+    brenne ich ganz – lichterloh.
+  </div>
+</body>
+</html>
