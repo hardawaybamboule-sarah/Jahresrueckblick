@@ -8,7 +8,7 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #000;
+      background-color: #000; /* schwarzer Hintergrund */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -17,22 +17,20 @@
     }
 
     video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      height: 100%;
-      width: auto;
-      object-fit: contain; /* passt das Video proportional an */
+      max-width: 100%;
+      max-height: 100%;
+      border: 2px solid gold; /* minimaler goldener Rahmen */
+      object-fit: contain;     /* Video bleibt im Hochformat sichtbar */
     }
   </style>
 </head>
 <body>
 
-  <video autoplay muted loop playsinline>
+  <video autoplay muted loop playsinline controls>
     <source src="willkommensvideo.mp4" type="video/mp4">
     Dein Browser unterstützt dieses Video leider nicht.
   </video>
 
 </body>
+</html></body>
 </html>
