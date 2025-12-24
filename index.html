@@ -1,47 +1,124 @@
 <!DOCTYPE html>
+
 <html lang="de">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Schwellengang – Willkommen</title>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+  <meta charset="UTF-8">
 
-    video {
-      max-width: 100%;
-      max-height: 100vh;
-      height: auto;
-      width: auto;
-      background-color: #000;
-    }
-  </style>
+  <title>Willkommensvideo</title>
+
+  <style>
+
+    body, html {
+
+      margin: 0;
+
+      padding: 0;
+
+      width: 100%;
+
+      height: 100%;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      background: #000; /* minimaler schwarzer Hintergrund */
+
+      overflow: hidden;
+
+      font-family: sans-serif;
+
+    }
+
+
+    /* Video behält Originalgröße, zentriert */
+
+    #bg-video {
+
+      display: block;
+
+      max-width: 95%;   /* passt sich dem Bildschirm an, bleibt proportional */
+
+      max-height: 95%;
+
+      border: 2px solid #111; /* minimaler Rahmen */
+
+      border-radius: 5px;
+
+      object-fit: contain; /* zeigt gesamten Flyer ohne Abschneiden */
+
+    }
+
+
+    /* Play-Button über dem Video */
+
+    #play-button {
+
+      position: absolute;
+
+      bottom: 20px;
+
+      padding: 12px 24px;
+
+      font-size: 18px;
+
+      background: rgba(255, 255, 255, 0.8);
+
+      border: none;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      z-index: 2;
+
+    }
+
+  </style>
+
 </head>
 
 <body>
 
-  <video controls playsinline preload="metadata">
-    <source src="willkommensvideo.mp4" type="video/mp4">
-    Dein Browser unterstützt dieses Video leider nicht.
-  </video>
+
+  <!-- Video -->
+
+  <video id="bg-video" loop muted>
+
+    <source src="Willkommensvideo.mp4" type="video/mp4">
+
+    Dein Browser unterstützt das Video-Tag nicht.
+
+  </video>
+
+
+  <!-- Play-Button -->
+
+  <button id="play-button" onclick="startVideo()">▶ Ton starten</button>
+
+
+  <script>
+
+    function startVideo() {
+
+      const video = document.getElementById('bg-video');
+
+      video.muted = false; // Ton einschalten
+
+      video.play();
+
+      document.getElementById('play-button').style.display = 'none';
+
+    }
+
+  </script>
+
 
 </body>
-</html>
-<script>
-function playVideo() {
-  const video = document.getElementById("video");
-  video.play();
-  document.querySelector(".play-button").style.display = "none";
-}
-</script>
 
-</body>
 </html>
+
