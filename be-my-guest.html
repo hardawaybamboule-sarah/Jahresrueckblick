@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
+  <title>Be My Guest</title>
   <style>
     body, html {
       margin: 0;
@@ -11,25 +12,25 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #3e2f2a; /* dunkler Holzton */
-      background-image: repeating-linear-gradient(
-        0deg,
-        rgba(0,0,0,0.1),
-        rgba(0,0,0,0.1) 2px,
-        transparent 2px,
-        transparent 20px
-      ); /* einfache Holzlatten-Optik */
       font-family: sans-serif;
+
+      /* Dunkler Holzton mit vertikalen Latten und Struktur */
+      background-color: #3e2f2a;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 50px 100%;
     }
 
     #main-image {
       max-width: 90%;
       max-height: 90%;
       object-fit: contain;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5); /* optional: leicht abgehoben */
     }
   </style>
 </head>
 <body>
-  <img id="main-image" src="willkommen.jpg" alt="willkommen">
+  <img id="main-image" src="willkommen.jpg" alt="Willkommen">
 </body>
 </html>
