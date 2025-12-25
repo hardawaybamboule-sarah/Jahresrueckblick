@@ -9,28 +9,49 @@
       padding: 0;
       width: 100%;
       height: 100%;
+      background-color: #0a0a30; /* sehr dunkles Blau */
+      font-family: sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #0a0a30; /* sehr dunkles Blau */
-      font-family: sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Sterne */
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #fff8dc; /* Weißgold */
+      border-radius: 50%;
+      animation: twinkle 3s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
     }
 
     #text-container {
-      border: 2px solid #FFD700; /* zarter goldener Rahmen */
-      padding: 20px;
+      border: 4px solid #FFD700; /* goldener Rahmen */
+      padding: 40px;
       text-align: center;
-      color: #FFD700; /* sanftes Gold für Text */
+      color: #fff8dc; /* Weißgold */
       max-width: 80%;
-      line-height: 1.5;
-      border-radius: 5px;
+      font-size: 1.8em;
+      line-height: 1.6;
+      border-radius: 8px;
+      z-index: 1;
+      background: rgba(0,0,0,0); /* transparent */
     }
 
     #audio-button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      background: rgba(255, 215, 0, 0.8); /* goldene Farbe */
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background: #fff8dc; /* Weißgold */
+      color: #0a0a30;
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -57,6 +78,18 @@
     function playAudio() {
       const audio = document.getElementById('raw-audio');
       audio.play();
+    }
+
+    // Sterne generieren
+    const numStars = 80; // Anzahl der Sterne
+    for (let i = 0; i < numStars; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 3 + 's';
+      star.style.width = star.style.height = (Math.random() * 2 + 1) + 'px';
+      document.body.appendChild(star);
     }
   </script>
 
