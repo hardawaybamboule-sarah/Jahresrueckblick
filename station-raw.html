@@ -3,61 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <title>RAW-Station</title>
+
   <style>
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
       background-color: #0a0a30; /* sehr dunkles Blau */
       font-family: sans-serif;
+      overflow: hidden;
+    }
+
+    body {
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
       position: relative;
     }
 
-    /* Sterne */
+    /* ===== Sterne ===== */
     .star {
       position: absolute;
       width: 2px;
       height: 2px;
       background: #fff8dc; /* Weißgold */
       border-radius: 50%;
-      animation: twinkle 3s infinite;
+      opacity: 0.6;
+      animation: twinkle 3s infinite ease-in-out;
     }
 
     @keyframes twinkle {
-      0%, 100% { opacity: 0.2; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.5); }
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
     }
 
+    /* ===== Text-Rahmen ===== */
     #text-container {
-      border: 4px solid #FFD700; /* goldener Rahmen */
-      padding: 40px;
+      border: 4px solid #fff8dc; /* Weißgold-Rahmen */
+      padding: 50px 60px;
       text-align: center;
-      color: #fff8dc; /* Weißgold */
-      max-width: 80%;
-      font-size: 1.8em;
+      color: #fff8dc; /* Weißgold-Schrift */
+      font-size: 2.1rem; /* groß für Smartphone */
       line-height: 1.6;
-      border-radius: 8px;
-      z-index: 1;
-      background: rgba(0,0,0,0); /* transparent */
+      max-width: 85vw;
+      z-index: 2;
+      border-radius: 10px;
     }
 
+    /* ===== Button ===== */
     #audio-button {
-      margin-top: 30px;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      background: #fff8dc; /* Weißgold */
-      color: #0a0a30;
-      border: none;
-      border-radius: 5px;
+      margin-top: 35px;
+      padding: 18px 40px;
+      font-size: 1.4rem;
+      background: transparent;
+      color: #fff8dc;
+      border: 2px solid #fff8dc;
+      border-radius: 6px;
       cursor: pointer;
+    }
+
+    #audio-button:active {
+      background: rgba(255, 248, 220, 0.15);
     }
   </style>
 </head>
+
 <body>
 
   <div id="text-container">
@@ -76,19 +87,19 @@
 
   <script>
     function playAudio() {
-      const audio = document.getElementById('raw-audio');
-      audio.play();
+      document.getElementById("raw-audio").play();
     }
 
-    // Sterne generieren
-    const numStars = 80; // Anzahl der Sterne
-    for (let i = 0; i < numStars; i++) {
-      const star = document.createElement('div');
-      star.className = 'star';
-      star.style.top = Math.random() * 100 + '%';
-      star.style.left = Math.random() * 100 + '%';
-      star.style.animationDelay = Math.random() * 3 + 's';
-      star.style.width = star.style.height = (Math.random() * 2 + 1) + 'px';
+    /* Sterne erzeugen */
+    const starCount = 90;
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      star.style.top = Math.random() * 100 + "%";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.animationDelay = Math.random() * 3 + "s";
+      star.style.width = star.style.height =
+        (Math.random() * 2 + 1) + "px";
       document.body.appendChild(star);
     }
   </script>
